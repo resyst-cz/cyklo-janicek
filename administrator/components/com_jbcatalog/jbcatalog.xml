@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="3.0" method="upgrade">
+        <name>COM_JBCATALOG</name>
+        <author>BearDev</author>
+		<creationDate>January 2014</creationDate>
+		<copyright>Copyright (C) 2014 beardev.com. All rights reserved.</copyright>
+		<license>GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html</license>
+        <authorEmail>info@beardev.com</authorEmail>
+        <authorUrl>http://www.BearDev.com</authorUrl>
+        <version>1.0.2</version> 
+        <description>COM_JBCATALOG_DESC</description>
+        <install>
+    		<sql>
+     			 <file charset="utf8" driver="mysql">install.mysql.sql</file>
+    		</sql>
+ 	</install>
+        <uninstall>
+            <sql>
+                <file charset="utf8" driver="mysql">uninstall.mysql.sql</file>
+            </sql>
+        </uninstall>
+        <files folder="front">
+		<folder>css</folder>
+                <folder>helpers</folder>
+                <folder>libraries</folder>
+                <folder>models</folder>
+                <folder>views</folder>
+                <folder>controllers</folder>
+		<filename>jbcatalog.php</filename>
+                <filename>controller.php</filename>
+		<filename>index.html</filename>
+	</files>
+        <languages folder="front">
+		<language tag="en-GB">en-GB.com_jbcatalog.ini</language>
+        </languages>
+        <administration>
+            <menu link="option=com_jbcatalog" >COM_JBCATALOG</menu>
+            <submenu>
+                <menu view="categories">COM_JBCATALOG_CATEGOTIES</menu>
+                <menu view="items">COM_JBCATALOG_ITEMS</menu>
+                <menu view="adfgroups">COM_JBCATALOG_ADFGROUPS</menu>
+                <menu view="adfs">COM_JBCATALOG_ADFS</menu>
+                <menu view="plugins">COM_JBCATALOG_PLUGINS</menu>
+            </submenu>
+	        
+			
+            <files folder="admin">
+                <folder>controllers</folder>
+                <folder>elements</folder>
+                <folder>helpers</folder>
+                <folder>images</folder>
+                <folder>models</folder>
+                <folder>tables</folder>
+                <folder>views</folder>
+                <folder>plugins</folder>
+                <filename>jbcatalog.php</filename>
+                <filename>controller.php</filename>
+                <filename>install.mysql.sql</filename>
+		<filename>index.html</filename>
+            </files>
+            <languages folder="admin/language">
+		<language tag="en-GB">en-GB/en-GB.com_jbcatalog.ini</language>
+                <language tag="en-GB">en-GB/en-GB.com_jbcatalog.sys.ini</language>
+            </languages>
+
+ 	</administration>
+</extension>

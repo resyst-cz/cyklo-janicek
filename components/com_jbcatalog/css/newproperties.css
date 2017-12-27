@@ -1,0 +1,50 @@
+.bc_mainbl_left{
+    float:left;
+    min-width: 30px;
+}
+.bc_maibl_right{
+    float:left;
+    width:70%;
+    margin:5px;
+}
+.bc_mainbl{
+    overflow: hidden;
+    width: 100%;
+}
+.bc_img_block{
+    padding:5px;
+    text-align:center;
+}
+
+.bc_header, .bc_mainbl_left, .bc_maibl_right, .bc_footer{
+    min-height: 30px;
+}
+
+/* =====my css ======== */
+#draggableHelper {
+    opacity: 0.5;
+}
+
+.hovered {
+    opacity: 0.2;
+}
+
+.dragOver {
+    opacity: 1;
+}
+
+.parameters{
+    display: none;
+}
+
+#modal {
+    display:none;
+}
+
+.success{
+    display: none;
+    border: 1px solid green;
+    font-size: 16px;
+    width: 200px;
+    height: 50px;
+}

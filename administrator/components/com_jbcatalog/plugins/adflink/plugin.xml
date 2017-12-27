@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="jbplugin" version="1">
+	<name>adflink</name>
+	<title>COM_JBCATALOG_ADF_FIELDTYPE_LINK</title>
+	<author>BearDev</author>
+	<creationDate>March 2014</creationDate>
+	<copyright>Copyright (C)2010 BearDev. All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail>admin@beardev.com</authorEmail>
+	<authorUrl>www.beardev.com</authorUrl>
+	<version>1.0</version>
+	<type>adf</type>
+	<description>Additional field Link.</description>
+</extension>

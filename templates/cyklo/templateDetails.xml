@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE install PUBLIC "-//Joomla! 2.5//DTD template 1.0//EN" "http://www.joomla.org/xml/dtd/2.5/template-install.dtd">
+<extension version="3.1" type="template" client="site">
+	<name>Cyklo</name>
+	<version>1.0</version>
+	<creationDate>2015-06-19</creationDate>
+	<author>ReSyst.cz</author>
+	<authorEmail>admin@resyst.cz</authorEmail>
+	<copyright>Copyright (C) 2015 ReSyst.cz</copyright>
+	<description>TPL_CYKLO_XML_DESCRIPTION</description>
+	<files>
+		<filename>component.php</filename>
+		<filename>error.php</filename>
+		<filename>favicon.ico</filename>
+		<filename>index.php</filename>
+		<filename>templateDetails.xml</filename>
+		<filename>template_preview.png</filename>
+		<filename>template_thumbnail.png</filename>
+		<folder>css</folder>
+		<folder>html</folder>
+		<folder>images</folder>
+		<folder>img</folder>
+		<folder>js</folder>
+		<folder>language</folder>
+		<folder>less</folder>
+	</files>
+	<positions>
+		<position>banner</position>
+		<position>debug</position>
+		<position>body-top</position>
+		<position>top-nav</position>
+		<position>sortiment-nav</position>
+		<position>slideshow</position>
+		<position>banner-1</position>
+		<position>banner-2</position>
+		<position>banner-3</position>
+		<position>mini-kolo</position>
+		<position>reference</position>
+		<position>certifikace</position>
+		<position>testovaci-dny</position>
+		<position>sponzorujeme</position>
+		<position>breadcrumbs</position>
+		<position>sidebar-right</position>
+		<position>sidebar-left</position>
+		<position>znacky</position>
+		<position>mapka</position>
+		<position>mapka-oteviraci-doba</position>
+		<position>contact-form</position>
+		<position>bazar-form</position>
+		<position>bazar-form-title</position>
+		<position>nad-spodni-listou</position>
+		<position>instagram</position>
+		<position>footer-left</position>
+		<position>footer-middle</position>
+		<position>footer-right</position>
+		<position>position-3</position>
+	</positions>
+	<languages folder="language">
+		<language tag="cs-CZ">cs-CZ/cs-CZ.tpl_cyklo.ini</language>
+		<language tag="cs-CZ">cs-CZ/cs-CZ.tpl_cyklo.sys.ini</language>
+		<language tag="en-GB">en-GB/en-GB.tpl_cyklo.ini</language>
+		<language tag="en-GB">en-GB/en-GB.tpl_cyklo.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="advanced">
+
+				<field name="logoFile" class="" type="media" default=""
+					label="TPL_CYKLO_LOGO_LABEL"
+					description="TPL_CYKLO_LOGO_DESC" />
+
+				<field name="sitetitle"  type="text" default=""
+					label="JGLOBAL_TITLE"
+					description="JFIELD_ALT_PAGE_TITLE_LABEL"
+					filter="string" />
+
+				<field name="siteslogan"  type="text" default=""
+					label="TPL_CYKLO_SLOGAN_LABEL"
+					description="TPL_CYKLO_SLOGAN_DESC"
+					filter="string" />
+				<field name="siteslogan-2"  type="text" default=""
+					label="TPL_CYKLO_SLOGAN_2_LABEL"
+					description="TPL_CYKLO_SLOGAN_2_DESC"
+					filter="string" />
+
+				<field name="fluidContainer"
+					type="radio"
+					class="btn-group btn-group-yesno"
+					default="0"
+					label="TPL_CYKLO_FLUID_LABEL"
+					description="TPL_CYKLO_FLUID_DESC"
+				>
+					<option value="1">TPL_CYKLO_FLUID</option>
+					<option value="0">TPL_CYKLO_STATIC</option>
+				</field>
+
+				<field name="siteemail"  type="text" default=""
+					label="TPL_CYKLO_EMAIL_LABEL"
+					description="TPL_CYKLO_EMAIL_DESC"
+					filter="string" />
+
+				<field name="sitephone"  type="text" default=""
+					label="TPL_CYKLO_PHONE_LABEL"
+					description="TPL_CYKLO_PHONE_DESC"
+					filter="string" />
+
+			</fieldset>
+		</fields>
+	</config>
+</extension>

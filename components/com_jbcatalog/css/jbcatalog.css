@@ -1,0 +1,125 @@
+.catimg_div{
+    width:  50px;
+    min-height:20px;
+    padding: 5px;
+    background-color: #eee;
+    float:left;
+} 
+.catimg_div img{
+    width: 50px;
+}
+.catinfo_div{
+    float:left;
+    margin-left: 15px;
+}
+.catinfo_div a{
+    font-weight: bold;
+}
+.item_mimg_div{
+    width:  80px;
+    height: 80px;
+    padding: 10px;
+    background-color: #eee;
+}
+.item_miniimg_div{
+    float:left;
+    width:20px;
+    height:20px;
+    background-color: #eee;
+    margin:1px;
+    padding:5px;
+}
+.item_miniimg_div img{
+    width:20px;
+    height:20px;
+}
+.adf_clearfx_div{
+    overflow: hidden;
+    width: 100%;
+}
+.adf_clearfx_div label{
+    width:130px;
+    text-align: right;
+    float:left;
+    font-weight: bold;
+}
+.adf_clearfx_div div{
+    margin-left:140px;
+}
+h3.adfgroup_name_h3{
+    cursor: pointer;
+}
+
+/*filters*/
+div.bcfilters{
+    clear:both;
+}
+div.bcfilters label{
+    float:left;
+    width:150px;
+}
+div.bcfilters div{
+    float:left;
+    min-height: 40px;
+}
+div.bcfilters .inpfilter{
+    width:100px;
+    padding:4px 6px;
+    margin: 0px;
+}
+div.bcfilters select{
+    width:112px;
+}
+div.filtershead{
+    cursor:pointer;
+}
+#divfiltr_area{
+    border:1px solid #eee;
+    margin:15px;
+    padding:15px;
+    background-color: #eee;
+}
+
+#divfiltr div.bcat_filtrdiv_cmp{
+    float:none;
+}
+.adf_clearfx_div .star-rating-control div{
+    margin: 0px;
+}
+.adf_clearfx_div label{
+    cursor:default;
+}
+
+.successDIV{
+    margin:10px;
+    padding:10px;
+    display:none;
+    color:green;
+    border:1px solid green;
+}
+
+.jbitemlist{
+    border-bottom:1px solid #ddd;
+    padding:10px;
+    overflow:hidden;
+}
+.jbitemlist .catinfo_div div{
+    float:left;
+    padding-left:15px;
+}
+
+table.jb_catlist{
+    width:100%;
+    border:0px;
+}
+table.jb_catlist th{
+    background-color: #3aa5ff;
+    padding:5px;
+    color:white;
+    font-style: italic;
+    font-weight: bold;
+    border-left:1px solid #fff;
+}    
+table.jb_catlist td{
+    padding-left: 15px;
+}

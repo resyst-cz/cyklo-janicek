@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fieldset name="details"
+		addfieldpath="/administrator/components/com_jbcatalog/models/fields"
+	>
+		<field name="id" type="text" default="0"
+			readonly="true" class="readonly"
+			label="JGLOBAL_FIELD_ID_LABEL" 	description ="JGLOBAL_FIELD_ID_DESC" />
+
+		<field name="name" type="text" readonly="true"
+			size="40" label="COM_JBCATALOG_PLUGIN_NAME" class="readonly"
+			description="COM_JBCATALOG_PLUGIN_NAME_DESC" />
+
+
+		<field name="published" type="list"
+			label="JSTATUS" description="COM_JBCATALOG_FIELD_STATUS_DESC"
+			class="inputbox span12 small" size="1" default="1" >
+			<option value="1">JPUBLISHED</option>
+			<option value="0">JUNPUBLISHED</option>
+
+		</field>
+        
+    </fieldset>
+
+
+
+</form>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="COM_JBCATALOG_LIST" option="COM_JBCATALOG_LIST_OPTION">
+		<message>
+			<![CDATA[COM_JBCATALOG_LIST_DESC]]>
+		</message>
+	</layout>
+
+	
+<fields name="params">
+	
+</fields>
+</metadata>

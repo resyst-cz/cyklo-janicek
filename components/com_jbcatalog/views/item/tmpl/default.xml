@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="COM_JBCATALOG_ITEM" option="COM_JBCATALOG_ITEM_OPTION">
+
+		<message>
+			<![CDATA[COM_JBCATALOG_ITEM_DESC]]>
+		</message>
+	</layout>
+
+	<fields name="request">
+		<fieldset name="request" addfieldpath="/administrator/components/com_jbcatalog/elements/">
+
+			<field name="id" 
+			type="bearlist" 
+			sql="SELECT id,title FROM #__jbcatalog_items WHERE published='1' ORDER BY title,ordering"
+			key_field="id"
+			value_field="title" 
+			label="COM_JBCATALOG_SELECT_ITEM"
+                        default=""
+                        >
+			</field>
+
+		</fieldset>
+	</fields>
+</metadata>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fieldset name="details"
+		addfieldpath="/administrator/components/com_jbcatalog/models/fields"
+	>
+		<field name="id" type="text" default="0"
+			readonly="true" class="readonly"
+			label="JGLOBAL_FIELD_ID_LABEL" 	description ="JGLOBAL_FIELD_ID_DESC" />
+
+		<field name="name" type="text" class="inputbox"
+			size="40" label="COM_JBCATALOG_ADFGR_NAME_LABEL"
+			description="COM_JBCATALOG_ADFGR_NAME_DESC" required="true" />
+
+
+		<field name="published" type="list"
+			label="JSTATUS" description="COM_BANNERS_FIELD_STATE_DESC"
+			class="inputbox span12 small" size="1" default="1" >
+			<option value="1">JPUBLISHED</option>
+			<option value="0">JUNPUBLISHED</option>
+
+		</field>
+                <field name="adfs" type="adfs" extension="com_jbcatalog"
+                        label="COM_JBCATALOG_ADFS_LABEL" description="COM_JBCATALOG_ADFS_DESC"
+                        class="inputbox" multiple="multiple"
+                        addfieldpath="/administrator/components/com_categories/models/fields">
+                 </field>
+
+
+        <field name="displayopt" type="list"
+               label="COM_JBCATALOG_FIELD_DISPLAY_OPTION_LABEL" description="COM_JBCATALOG_FIELD_DISPLAY_OPTION_DESC"
+               class="inputbox" size="1" default="1" >
+            <option value="1">COM_JBCATALOG_VISIBLE</option>
+            <option value="0">COM_JBCATALOG_HIDDEN</option>
+            <option value="2">COM_JBCATALOG_JASTAB</option>
+
+        </field>
+
+
+    </fieldset>
+
+
+
+</form>

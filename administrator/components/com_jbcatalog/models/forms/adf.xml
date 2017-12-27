@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fieldset name="details"
+		addfieldpath="/administrator/components/com_jbcatalog/models/fields"
+	>
+		<field name="id" type="text" default="0"
+			readonly="true" class="readonly"
+			label="JGLOBAL_FIELD_ID_LABEL" 	description ="JGLOBAL_FIELD_ID_DESC" />
+
+		<field name="name" type="text" class="inputbox"
+			size="40" label="COM_JBCATALOG_ADF_NAME"
+			description="COM_JBCATALOG_ADF_NAME_DESC" required="true" />
+
+
+		<field name="published" type="list"
+			label="JSTATUS" description="COM_JBCATALOG_FIELD_STATUS_DESC"
+			class="inputbox span12 small" size="1" default="1" >
+			<option value="1">JPUBLISHED</option>
+			<option value="0">JUNPUBLISHED</option>
+
+		</field>
+        <field name="field_type" type="adftypes"
+               label="COM_JBCATALOG_ADF_FIELDTYPE_LABEL" description="COM_JBCATALOG_ADF_FIELDTYPE_DESC"
+               class="inputbox" size="1" default="0"
+                onchange="javascript:getSelDiv(this);"        >
+        </field>
+        <field name="adf_complex" type="adfscomplex" extension="com_jbcatalog"
+               label="COM_JBCATALOG_ADF_COMPLEX_LABEL" description="COM_JBCATALOG_ADF_COMPLEX_DESC"
+               class="inputbox"
+               addfieldpath="/administrator/components/com_categories/models/fields">
+        </field>
+        <field name="filters" type="list"
+               label="COM_JBCATALOG_ADF_FILTER_LABEL" description="COM_JBCATALOG_ADF_FILTER_DESC"
+               class="inputbox" size="1" default="1" >
+            <option value="1">COM_JBCATALOG_ADF_FILTER_YES</option>
+            <option value="0">COM_JBCATALOG_ADF_FILTER_NO</option>
+
+        </field>
+        <field name="group_id" type="adfsgroup" extension="com_jbcatalog"
+               label="COM_JBCATALOG_ADFGROUP_LABEL" description="COM_JBCATALOG_ADFGROUP_DESC"
+               class="inputbox" multiple="multiple"
+               addfieldpath="/administrator/components/com_categories/models/fields">
+        </field>
+        
+
+        <field name="adf_prefix" type="text" class="inputbox"
+			size="10" label="COM_JBCATALOG_ADF_PREFIX"
+			description="COM_JBCATALOG_ADF_PREFIX_DESC" />
+        <field name="adf_postfix" type="text" class="inputbox"
+			size="20" label="COM_JBCATALOG_ADF_POSFIX"
+			description="COM_JBCATALOG_ADF_POSFIX_DESC" />
+        <field name="adf_tooltip" type="textarea"
+               label="COM_JBCATALOG_FIELD_ADF_TOOLTIP_LABEL"
+               description="COM_JBCATALOG_FIELD_ADF_TOOLTIP_DESC"
+               class="inputbox"
+               filter="JComponentHelper::filterText"
+                />
+
+    </fieldset>
+
+
+
+</form>

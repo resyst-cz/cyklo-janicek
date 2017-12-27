@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="COM_JBCATALOG_CATEGORY" option="COM_JBCATALOG_CATEGORY_OPTION">
+
+		<message>
+			<![CDATA[COM_JBCATALOG_CATEGORY_DESC]]>
+		</message>
+	</layout>
+
+	<fields name="request">
+		<fieldset name="request" addfieldpath="/administrator/components/com_jbcatalog/elements/">
+
+			<field name="id" 
+			type="bearlist" 
+			sql="SELECT id,title FROM #__jbcatalog_category WHERE parent_id!=0 AND published='1' ORDER BY lft"
+			key_field="id"
+			value_field="title" 
+                        required="true"
+			label="COM_JBCATALOG_SELECT_CATEGORY"
+			default="">
+			</field>
+
+		</fieldset>
+	</fields>
+</metadata>

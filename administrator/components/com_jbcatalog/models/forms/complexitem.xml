@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fieldset name="details"
+		addfieldpath="/administrator/components/com_jbcatalog/models/fields"
+	>
+		<field name="id" type="text" default="0"
+			readonly="true" class="readonly"
+			label="JGLOBAL_FIELD_ID_LABEL" 	description ="JGLOBAL_FIELD_ID_DESC" />
+
+		<field name="title" type="text" class="inputbox"
+			size="540" label="COM_JBCATALOG_FIELD_NAME_LABEL"
+			description="COM_JBCATALOG_FIELD_NAME_DESC" required="true" />
+
+		<field name="catid" type="catparentcomplex" extension="com_jbcatalog"
+			label="COM_JBCATALOG_FIELD_PARENTCAT" description="COM_JBCATALOG_FIELD_PARENTCAT_DESC"
+			class="inputbox" required="true"
+			addfieldpath="/administrator/components/com_categories/models/fields"
+                        onchange="javascript:getSelPar(this);"
+	>
+
+		</field>
+
+		<field name="parent_id" type="itemparentcomplex" extension="com_jbcatalog"
+			label="COM_JBCATALOG_FIELD_PARENTITEM" description="COM_JBCATALOG_FIELD_PARENTITEM_DESC"
+			class="inputbox" required="true"
+			addfieldpath="/administrator/components/com_jbcatalog/models/fields"
+                        
+	>
+
+		</field>
+		
+
+		<field name="language" type="contentlanguage" label="JFIELD_LANGUAGE_LABEL"
+			description="COM_JBCATALOG_FIELD_LANGUAGE_DESC" class="inputbox span12 small"
+		>
+			<option value="*">JALL</option>
+		</field>
+
+
+
+	</fieldset>
+
+
+
+</form>
