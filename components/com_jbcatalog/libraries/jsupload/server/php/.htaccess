@@ -1,0 +1,13 @@
+order deny,allow
+deny from all
+<ifModule mod_geoip.c>
+    GeoIPEnable On
+    # Put countries to allow here
+    SetEnvIf GEOIP_COUNTRY_CODE CZ AllowCountry
+    SetEnvIf GEOIP_COUNTRY_CODE SK AllowCountry
+    allow from env=AllowCountry
+</ifModule>
+
+# Allow only selected IPs
+# Holop
+allow from 193.85.74.152 
