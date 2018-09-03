@@ -5,9 +5,18 @@ deny from all
     # Put countries to allow here
     SetEnvIf GEOIP_COUNTRY_CODE CZ AllowCountry
     SetEnvIf GEOIP_COUNTRY_CODE SK AllowCountry
+    SetEnvIf GEOIP_COUNTRY_CODE GB AllowCountry
     allow from env=AllowCountry
 </ifModule>
 
 # Allow only selected IPs
 # Holop
 allow from 193.85.74.152 
+
+# Janicek
+allow from 86.165.209.82
+allow from 31.31.234.252
+allow from 93.181.95.41
+
+#Jambor
+allow from 46.39.175.143

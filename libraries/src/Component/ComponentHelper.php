@@ -2,7 +2,7 @@
 /**
  * Joomla! Content Management System
  *
- * @copyright  Copyright (C) 2005 - 2017 Open Source Matters, Inc. All rights reserved.
+ * @copyright  Copyright (C) 2005 - 2018 Open Source Matters, Inc. All rights reserved.
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
@@ -257,6 +257,7 @@ class ComponentHelper
 				{
 					$filter->tagBlacklist = array_diff($filter->tagBlacklist, $whiteListTags);
 				}
+
 				// Remove whitelisted attributes from filter's default blacklist
 				if ($whiteListAttributes)
 				{
@@ -416,7 +417,9 @@ class ComponentHelper
 			$query = $db->getQuery(true)
 				->select($db->quoteName(array('extension_id', 'element', 'params', 'enabled'), array('id', 'option', null, null)))
 				->from($db->quoteName('#__extensions'))
-				->where($db->quoteName('type') . ' = ' . $db->quote('component'));
+				->where($db->quoteName('type') . ' = ' . $db->quote('component'))
+				->where($db->quoteName('state') . ' = 0')
+				->where($db->quoteName('enabled') . ' = 1');
 			$db->setQuery($query);
 
 			return $db->loadObjectList('option', '\JComponentRecord');

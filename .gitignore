@@ -2,6 +2,11 @@ _patch/
 _sql/
 logs/
 cyklo.zip
+composer.*
+vendor/
+.idea/
+.deployment
+deployment.*
 
 /.gitignore
 /.htaccess
