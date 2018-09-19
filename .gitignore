@@ -6,7 +6,7 @@ composer.*
 vendor/
 .idea/
 .deployment
-deployment.*
+deployment*
 
 /.gitignore
 /.htaccess
