@@ -156,21 +156,6 @@ if ($komponenta == 'com_content') {
           content="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/favicons/browserconfig.xml"/>
     <meta name="theme-color" content="#7da90f"/>
 
-    <?php if ($this->countModules('mapka')) : ?>
-        <!--
-            You need to include this script tag on any page that has a Google Map.
-
-            The following script tag will work when opening this example locally on your computer.
-            But if you use this on a localhost server or a live website you will need to include an API key.
-            Sign up for one here (it's free for small usage):
-                https://developers.google.com/maps/documentation/javascript/tutorial#api_key
-
-            After you sign up, use the following script tag with YOUR_GOOGLE_API_KEY replaced with your actual key.
-            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqUF8pj9IVHkcu0WETKytFwaMfcQP19q4&sensor=false"></script>
-        -->
-        <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
-        <script src="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/js/shady-map.js"></script>
-    <?php endif; ?>
     <?php if ($this->countModules('instagram')) : ?>
         <script src="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/js/instafeed.min.js"></script>
     <?php endif; ?>
