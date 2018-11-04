@@ -34,11 +34,20 @@ if (!empty($this->items)) {
                 if (isset($this->items[$i]->images) && count($this->items[$i]->images)) {
                     ?>
                     <div class='product-image'>
-                        <a href="<?php echo JBCatalogImages::getImg($this->items[$i]->images[0], false); ?>"
-                           data-fancybox-group="thumb-<?php echo $i; ?>" class="fancybox-thumbs">
-                            <img src="<?php echo JBCatalogImages::getImg($this->items[$i]->images[0], false); ?>"
-                                 alt="<?php echo $this->items[$i]->title; ?>"/>
-                        </a>
+                        <?php
+
+                        $count = 0;
+                        foreach ($this->items[$i]->images as $image) { ?>
+                            <a <?php echo $count > 0 ? 'style="display: none;"' : ''; ?>
+                                href="<?php echo JBCatalogImages::getImg($image, false); ?>"
+                                data-fancybox-group="thumb-<?php echo $i; ?>" class="fancybox-thumbs">
+                                <img src="<?php echo JBCatalogImages::getImg($image, false); ?>"
+                                     alt="<?php echo $this->items[$i]->title; ?>"/>
+                            </a>
+                            <?php
+
+                            $count++;
+                        } ?>
                         <?php if (isset($this->items[$i]->resyst_kategorie)) { ?>
                             <div class='product-kategorie'>
                                 <span
