@@ -1,4 +1,5 @@
 <?php
+
 /**
  * zobrazeni kategorie nyni zobrazuje detaily produktu
  * 2015-08-02 ReSyst.cz
@@ -22,8 +23,10 @@ if (!empty($this->items)) {
     for ($i = 0; $i < count($this->items); $i++) {
         ?>
         <div class="row-fluid">
-            <div class="product-card span12" data-id="<?php echo $i; ?>" <?php echo (isset($this->items[$i]->resyst_kategorie)) ? "data-kategorie_id='" . $this->items[$i]->resyst_kategorie['id'] . "'" : ""; ?>>
+            <div class="product-card span12"
+                 data-id="<?php echo $i; ?>" <?php echo (isset($this->items[$i]->resyst_kategorie)) ? "data-kategorie_id='" . $this->items[$i]->resyst_kategorie['id'] . "'" : ""; ?>>
                 <?php
+
                 /* plugins */
                 if (isset($this->customplugins['checkbox'][$i]) && $this->customplugins['checkbox'][$i]) {
                     echo $this->customplugins['checkbox'][$i];
@@ -31,12 +34,15 @@ if (!empty($this->items)) {
                 if (isset($this->items[$i]->images) && count($this->items[$i]->images)) {
                     ?>
                     <div class='product-image'>
-                        <a href="<?php echo JBCatalogImages::getImg($this->items[$i]->images[0], false); ?>" data-fancybox-group="thumb" class="fancybox-thumbs">
-                            <img src="<?php echo JBCatalogImages::getImg($this->items[$i]->images[0], false); ?>" alt="<?php echo $this->items[$i]->title; ?>" />
+                        <a href="<?php echo JBCatalogImages::getImg($this->items[$i]->images[0], false); ?>"
+                           data-fancybox-group="thumb-<?php echo $i; ?>" class="fancybox-thumbs">
+                            <img src="<?php echo JBCatalogImages::getImg($this->items[$i]->images[0], false); ?>"
+                                 alt="<?php echo $this->items[$i]->title; ?>"/>
                         </a>
                         <?php if (isset($this->items[$i]->resyst_kategorie)) { ?>
                             <div class='product-kategorie'>
-                                <span class="kategorie_tag"><?php echo $this->items[$i]->resyst_kategorie['kategorie']; ?></span>
+                                <span
+                                    class="kategorie_tag"><?php echo $this->items[$i]->resyst_kategorie['kategorie']; ?></span>
                             </div>
                         <?php } ?>
                     </div>
@@ -65,11 +71,13 @@ if (!empty($this->items)) {
                             ?>
                             <li><a data-toggle="tab" href="#informace_<?php echo $i; ?>">Specifikace</a></li>
                             <?php
+
                         }
                         if (isset($this->items[$i]->descr)) {
                             ?>
                             <li><a data-toggle="tab" href="#popis_<?php echo $i; ?>">Popis produktu</a></li>
                             <?php
+
                         }
                         ?>
                     </ul>
@@ -79,7 +87,8 @@ if (!empty($this->items)) {
                                 <ul>
                                     <?php foreach ($this->items[$i]->resyst_info as $info) { ?>
                                         <?php if (!empty($info['hodnota'])) { ?>
-                                            <li class="icon_bg_<?php echo $info['hodnota_id'] ?>" data-toggle="tooltip" data-placement="left" title="<?php echo $info['extra']; ?>">
+                                            <li class="icon_bg_<?php echo $info['hodnota_id'] ?>" data-toggle="tooltip"
+                                                data-placement="left" title="<?php echo $info['extra']; ?>">
                                                 <span class="icon"></span><?php echo $info['hodnota']; ?>
                                             </li>
                                         <?php } ?>
@@ -87,6 +96,7 @@ if (!empty($this->items)) {
                                 </ul>
                             </div>
                             <?php
+
                         }
                         if (isset($this->items[$i]->descr)) {
                             ?>
@@ -94,22 +104,26 @@ if (!empty($this->items)) {
                                 <?php echo $this->items[$i]->descr; ?>
                             </div>
                             <?php
+
                         }
                         ?>
                     </div>
                 </div>
                 <?php
+
                 if ($this->state->{'category.id'} === 10) {
                     ?>
                     <div class="zeptat-se">
                         <a href="#bazarform" data-id="<?php echo $i; ?>" class="modal btn-email"><span>Chci další informace</span></a>
                     </div>
                     <?php
+
                 }
                 ?>
             </div>
         </div>
         <?php
+
     }
 } else {
     ?>
@@ -117,6 +131,7 @@ if (!empty($this->items)) {
         <p>Nenalezeny žádné produkty</p>
     </div>
     <?php
+
 }
 /* plugins */
 if (isset($this->customplugins['bottom']) && $this->customplugins['bottom']) {
