@@ -1,5 +1,5 @@
-order deny,allow
-deny from all
+#order deny,allow
+#deny from all
 <ifModule mod_geoip.c>
     GeoIPEnable On
     # Put countries to allow here
@@ -11,12 +11,12 @@ deny from all
 
 # Allow only selected IPs
 # Holop
-allow from 193.85.74.152 
+#allow from 193.85.74.152
 
 # Janicek
-allow from 86.165.209.82
-allow from 31.31.234.252
-allow from 93.181.95.41
+#allow from 86.165.209.82
+#allow from 31.31.234.252
+#allow from 93.181.95.41
 
 #Jambor
-allow from 46.39.175.143
+#allow from 46.39.175.143
