@@ -234,11 +234,6 @@ p {
 }
 /* TOP NAVIGATION SUBMENU END */
 /* SLIDESHOW START */
-.slideshow-full {
-    margin-top: 25px;
-    position: relative;
-    z-index: 1;
-}
 .jmslideshow .slideshow-content h3 {
     color: #7ca90f;
     font-family: Open Sans;
@@ -285,17 +280,23 @@ p {
     display: inline-block;
     float: none;
 }
-.jmslideshow .cycle-prev, .jmslideshow .cycle-prev:hover,.jmslideshow .cycle-prev:visited,.jmslideshow .cycle-prev:active,.jmslideshow .cycle-prev:focus,
-.jmslideshow .cycle-next, .jmslideshow .cycle-next:hover,.jmslideshow .cycle-next:visited,.jmslideshow .cycle-next:active,.jmslideshow .cycle-next:focus {
+.jmslideshow .cycle-prev, .jmslideshow .cycle-prev:hover, .jmslideshow .cycle-prev:visited, .jmslideshow .cycle-prev:active, .jmslideshow .cycle-prev:focus,
+.jmslideshow .cycle-next, .jmslideshow .cycle-next:hover, .jmslideshow .cycle-next:visited, .jmslideshow .cycle-next:active, .jmslideshow .cycle-next:focus,
+.camera_prev, .camera_next {
     height: 62px;
     width: 33px;
     opacity: 1;
 }
-.jmslideshow .cycle-prev {
+.jmslideshow .cycle-prev, .camera_prev {
     background: rgba(0, 0, 0, 0) url("../images/arrow_left.png") no-repeat scroll 0 0 !important;
+    left: 20px;
 }
-.jmslideshow .cycle-next {
+.jmslideshow .cycle-next, .camera_next {
     background: rgba(0, 0, 0, 0) url("../images/arrow_right.png") no-repeat scroll 0 0 !important;
+    right: 20px;
+}
+.camera_prev > span, .camera_next > span, .camera_commands {
+    display: none;
 }
 /* SLIDESHOW END */
 /* SORTIMENT MENU START */
@@ -338,15 +339,14 @@ p {
 .sortiment-menu .nav li.active,
 .sortiment-menu .nav li a:hover,
 .sortiment-menu .nav li a:focus,
-.sortiment-menu .nav li.active a
-{
+.sortiment-menu .nav li.active a {
     background: #688e0a;
 }
 /* SORTIMENT MENU END */
 /* BANNER 1 + 2 START */
 .banner1-bg {
     background: #151515 url("../images/banner-1.png") no-repeat scroll 50% 50%;
-    padding: 60px 0 0;
+    padding: 60px 0 20px;
     min-height: 380px;
     max-height: 420px;
 }
@@ -760,13 +760,13 @@ p {
 /* KONTAKTNI FORMULAR START */
 .contact-form:not(.bazar-form) {
     background: #a8c424;
-    background: -moz-radial-gradient(center, ellipse cover,  #a8c424 0%, #7eab0e 100%);
-    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#a8c424), color-stop(100%,#7eab0e));
-    background: -webkit-radial-gradient(center, ellipse cover,  #a8c424 0%,#7eab0e 100%);
-    background: -o-radial-gradient(center, ellipse cover,  #a8c424 0%,#7eab0e 100%);
-    background: -ms-radial-gradient(center, ellipse cover,  #a8c424 0%,#7eab0e 100%);
-    background: radial-gradient(ellipse at center,  #a8c424 0%,#7eab0e 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a8c424', endColorstr='#7eab0e',GradientType=1 );
+    background: -moz-radial-gradient(center, ellipse cover, #a8c424 0%, #7eab0e 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #a8c424), color-stop(100%, #7eab0e));
+    background: -webkit-radial-gradient(center, ellipse cover, #a8c424 0%, #7eab0e 100%);
+    background: -o-radial-gradient(center, ellipse cover, #a8c424 0%, #7eab0e 100%);
+    background: -ms-radial-gradient(center, ellipse cover, #a8c424 0%, #7eab0e 100%);
+    background: radial-gradient(ellipse at center, #a8c424 0%, #7eab0e 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a8c424', endColorstr='#7eab0e', GradientType=1);
     padding: 20px;
     position: relative;
     top: -50px;
@@ -1329,10 +1329,32 @@ p {
 }
 /* david aktualizace*/
 .certifikace ul li a {
-    color:#7eab0e;
+    color: #7eab0e;
 }
 .certifikat {
-    border-radius:50%;
-    width:109px;
-    height:109px;
+    border-radius: 50%;
+    width: 109px;
+    height: 109px;
+}
+.MainContainer {
+    perspective: 1px;
+    transform-style: preserve-3d;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+.ParallaxContainer {
+    /*display: flex;*/
+    /*flex: 1 0 auto;*/
+    position: relative;
+    height: 100vh;
+    left: -10px;
+    transform: translateZ(-1px) scale(2);
+    z-index: -1;
+}
+.ContentContainer {
+    display: block;
+    position: relative;
+    z-index: 1;
+    background: #fff;
 }
