@@ -6,7 +6,7 @@
  * */
 
 // pour gestion editeur d'images
-function jInsertEditorText(text, editor) {
+function ckInsertMedia(text, editor) {
 	var valeur = jQuery(text).attr('src');
 	jQuery('#'+editor).val(valeur);
 	addthumbnail(valeur, '#'+editor);
@@ -41,7 +41,7 @@ function addslideck(imgname, imgcaption, imgthumb, imglink, imgtarget, imgvideo,
 	if (!imgname)
 		imgname = '';
 	if (!imgthumb) {
-		imgthumb = '../modules/mod_slideshowck/elements/ckslidesmanager/unknown.png';
+		imgthumb = JURI + 'modules/mod_slideshowck/elements/ckslidesmanager/unknown.png';
 	} else {
 		imgthumb = JURI + imgname;
 	}
@@ -245,7 +245,7 @@ function addslideck(imgname, imgcaption, imgthumb, imglink, imgtarget, imgvideo,
 			+ '<div class="cksliderow"><span class="ckslidelabel">' + Joomla.JText._('MOD_SLIDESHOWCK_VIDEOURL', 'Video url') + '</span><input name="ckslidevideotext' + index + '" class="ckslidevideotext" type="text" value="' + imgvideo + '" onchange="javascript:storesetwarning();" /></div>'
 			+ '</div>'
 			+ '<div class="ckslideaccordeoncontent">'
-			+ '<div class="cksliderow" id="cksliderowarticle' + index + '"><span class="ckslidelabel">' + Joomla.JText._('MOD_SLIDESHOWCK_ARTICLE_ID', 'Article ID') + '</span><input name="ckslidearticleid' + index + '" class="ckslidearticleid input-medium" id="ckslidearticleid' + index + '" style="width:20px" type="text" value="' + articleid + '" disabled="disabled" onchange="javascript:storesetwarning();" /><input name="ckslidearticlename' + index + '" class="ckslidearticlename input-medium" id="ckslidearticlename' + index + '" type="text" value="' + articlename + '" disabled="disabled" /><a id="ckslidearticlebuttonSelect" class="modal btn" href="index.php?option=com_content&amp;layout=modal&amp;view=articles&amp;tmpl=component&amp;function=jSelectArticle_ckslidearticleid' + index + '" rel="{handler: \'iframe\', size: {x: 800, y: 450}}" style="display:inline-block;margin:0 5px 0 5px;">' + Joomla.JText._('MOD_SLIDESHOWCK_SELECT', 'Select') + '</a><a class="btn" href="javascript:void(0)" onclick="document.getElementById(\'ckslidearticleid' + index + '\').value=\'\';document.getElementById(\'ckslidearticlename' + index + '\').value=\'\';">' + Joomla.JText._('MOD_SLIDESHOWCK_CLEAR', 'Clear') + '</a>'
+			+ '<div class="cksliderow" id="cksliderowarticle' + index + '"><span class="ckslidelabel">' + Joomla.JText._('MOD_SLIDESHOWCK_ARTICLE_ID', 'Article ID') + '</span><input name="ckslidearticleid' + index + '" class="ckslidearticleid input-medium" id="ckslidearticleid' + index + '" style="width:20px" type="text" value="' + articleid + '" disabled="disabled" onchange="javascript:storesetwarning();" /><input name="ckslidearticlename' + index + '" class="ckslidearticlename input-medium" id="ckslidearticlename' + index + '" type="text" value="' + articlename + '" disabled="disabled" /><a id="ckslidearticlebuttonSelect" class="modal btn" href="index.php?option=com_content&amp;layout=modal&amp;view=articles&amp;tmpl=component&amp;function=jSelectArticle_ckslidearticleid' + index + '&' + CKTOKEN + '" rel="{handler: \'iframe\', size: {x: 800, y: 450}}" style="display:inline-block;margin:0 5px 0 5px;">' + Joomla.JText._('MOD_SLIDESHOWCK_SELECT', 'Select') + '</a><a class="btn" href="javascript:void(0)" onclick="document.getElementById(\'ckslidearticleid' + index + '\').value=\'\';document.getElementById(\'ckslidearticlename' + index + '\').value=\'\';">' + Joomla.JText._('MOD_SLIDESHOWCK_CLEAR', 'Clear') + '</a>'
 			+(articleid != '' ? '<a id="ckslidearticlebuttonSelect" class="modal btn" href="index.php?option=com_content&layout=modal&tmpl=component&task=article.edit&id='+articleid+'" rel="{handler: \'iframe\', size: {x: 800, y: 450}}">'+Joomla.JText._('MOD_SLIDESHOWCK_EDIT', 'Edit')+'</a>' : '')
 			+'</div>'
 			+ '</div>'
@@ -390,9 +390,9 @@ function callslides() {
 }
 
 
-function makesortables() {	
+function makesortables() {
 	jQuery("#ckslideslist").sortable({
-		placeholder: "ui-state-highlight",
+//		placeholder: "ui-state-highlight",
 		handle: ".ckslidehandle",
 		items: ".ckslide",
 		axis: "y",
@@ -401,6 +401,7 @@ function makesortables() {
 		dropOnEmpty: true,
 		tolerance: "pointer",
 		placeholder: "placeholder",
+		connectWith: '',
 		zIndex: 9999,
 		update: function(event, ui) {
 			renumber_slides();
@@ -424,21 +425,13 @@ jQuery(document).ready(function() {
 
 	var script = document.createElement("script");
 	script.setAttribute('type', 'text/javascript');
-	script.text = "Joomla.submitbutton = function(task){"
+	script.text = "var SlideshowCK = {};"
+			+ "SlideshowCK.submitbutton = Joomla.submitbutton;"
+			+ "Joomla.submitbutton = function(task){"
 			+ "storeslideck();"
-			+ "var form = document.getElementById('modules-form') || document.getElementById('module-form');"
-			+ "if (task == 'module.cancel' || task == 'config.cancel.modules' || document.formvalidator.isValid(form)) {	Joomla.submitform(task, form);"
-			+ "if (self != top) {"
-			+ "window.top.setTimeout('window.parent.SqueezeBox.close()', 1000);"
-			+ "}"
-			+ "} else {"
-			+ "alert('Formulaire invalide');"
-			+ "}}";
+			+ "SlideshowCK.submitbutton(task);"
+			+ "};"
+			+ "jInsertEditorText = function(text, editor) {ckInsertMedia(text, editor)};";
+
 	document.body.appendChild(script);
-	
-//    jQuery( "#datepicker" ).datepicker(
-//		{
-//			"dateFormat": "d MM yy"
-//		}
-//		);
 });

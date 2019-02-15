@@ -12,7 +12,6 @@ defined('_JEXEC') or die('Restricted access');
 $width = ($params->get('width') AND $params->get('width') != 'auto') ? ' style="width:' . $params->get('width') . 'px;"' : '';
 $needJModal = false;
 ?>
-<!-- debut Slideshow CK -->
 <div class="slideshowck<?php echo $params->get('moduleclass_sfx'); ?> camera_wrap <?php echo $params->get('skin'); ?>" id="camera_wrap_<?php echo $module->id; ?>"<?php echo $width; ?>>
 	<?php
 	// for ($i = 0; $i < count($items); ++$i) {
@@ -103,4 +102,3 @@ if ($needJModal) JHtml::_('behavior.modal');
 ?>
 </div>
 <div style="clear:both;"></div>
-<!-- fin Slideshow CK -->

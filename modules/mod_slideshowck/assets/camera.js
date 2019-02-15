@@ -1,7 +1,9 @@
-// Camera slideshow v1.4.8 - a jQuery slideshow with many effects, transitions, easy to customize, using canvas and mobile ready, based on jQuery 1.4+
+// Camera slideshow v1.4.9 - a jQuery slideshow with many effects, transitions, easy to customize, using canvas and mobile ready, based on jQuery 1.4+
 // Copyright (c) 2012 by Manuel Masia - www.pixedelic.com
 // Licensed under the MIT license: http://www.opensource.org/licenses/mit-license.php
+// Updated by Cédric KEIFLIN - https://www.joomlack.fr - https://www.ceikay.com
 
+// v1.4.9	- 04/11/18 : check if the html code exists in the page
 // v1.4.8	- 02/05/18 : fix issue with fullpage background and image dimensions
 // v1.4.7	- 12/03/18 : add option for keyboard controls, arrows left - right and P
 // v1.4.6	- 09/01/18 : fix issue with image alignment option when using fullpage option
@@ -137,7 +139,10 @@ var Slideshowck = function (container, opts, callback) {
 
 		onStartTransition	: function() {  }	//this callback is invoked when the transition effect starts
 
-    };
+	};
+
+	// check if the slideshow does not exists in the page
+	if (! $(container).length) return;
 
 	if (!(this instanceof Slideshowck)) return new Slideshowck(container, opts, callback);
 	var slideshowcks = window.slideshowcks || [];

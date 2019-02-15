@@ -2,16 +2,16 @@
 /**
  * @package    Joomla.Language
  *
- * @copyright  Copyright (C) 2005 - 2015 Open Source Matters, Inc. All rights reserved.
+ * @copyright  Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 defined('_JEXEC') or die;
- 
+
 /**
- * cs-CZ localise class
+ * cs-CZ localise class.
  *
- * @since               1.6
+ * @since  1.6
  */
 abstract class cs_CZLocalise {
         /**
@@ -32,7 +32,7 @@ abstract class cs_CZLocalise {
                         $return =  array('2');
                 }
                 else {
-                        $return = array('MORE');
+                        $return = array('3');
                 }
                 return $return;
         } 

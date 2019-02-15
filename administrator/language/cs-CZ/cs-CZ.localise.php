@@ -32,7 +32,7 @@ abstract class cs_CZLocalise {
                         $return =  array('2');
                 }
                 else {
-                        $return = array('MORE');
+                        $return = array('3');
                 }
                 return $return;
         } 
