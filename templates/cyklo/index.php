@@ -50,9 +50,9 @@ JHtml::_('bootstrap.loadCss', false, $this->direction);
 // Adjusting content width
 if ($this->countModules('sidebar-right') && $this->countModules('sidebar-left')) {
     $span = "span6";
-} else if ($this->countModules('sidebar-right') && !$this->countModules('sidebar-left')) {
+} elseif ($this->countModules('sidebar-right') && !$this->countModules('sidebar-left')) {
     $span = "span9";
-} else if (!$this->countModules('sidebar-right') && $this->countModules('sidebar-left')) {
+} elseif (!$this->countModules('sidebar-right') && $this->countModules('sidebar-left')) {
     $span = "span9";
 } else {
     $span = "span12";
@@ -63,7 +63,7 @@ if ($this->params->get('logoFile')) {
     $logo = '<div class="site-logo"><img src="' . JUri::root() . $this->params->get('logoFile') . '" alt="' . $sitename . '" /></div>
                 <span class="site-title">' . htmlspecialchars($this->params->get('sitetitle')) . '</span><br />' .
         ($params->get('siteslogan') && $params->get('siteslogan-2') ? '<small>' . $params->get('siteslogan') . ' <span class="zelena">' . $params->get('siteslogan-2') . '</span></small>' : '');
-} else if ($this->params->get('sitetitle')) {
+} elseif ($this->params->get('sitetitle')) {
     $logo = '<span class="site-title" title="' . $sitename . '">' . htmlspecialchars($this->params->get('sitetitle')) . '</span>';
 } else {
     $logo = '<span class="site-title" title="' . $sitename . '">' . $sitename . '</span>';
@@ -90,7 +90,7 @@ if ($komponenta == 'com_content') {
         }
         $header_title = $article->title;
     }
-} else if ($komponenta == 'com_jbcatalog') {
+} elseif ($komponenta == 'com_jbcatalog') {
     $show_page_header = true;
     $menu = $app->getMenu(); // alternativa - vezme nazev z menu
     $header_title = $menu->getActive()->title; // aktivni polozka menu
@@ -107,9 +107,9 @@ if ($komponenta == 'com_content') {
     <![endif]-->
     <link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/css/style.css"
           type="text/css"/>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,400italic&subset=latin,latin-ext' rel='stylesheet'
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,400italic&subset=latin,latin-ext' rel='stylesheet'
           type='text/css'/>
-    <link href='http://fonts.googleapis.com/css?family=Kaushan+Script&subset=latin,latin-ext' rel='stylesheet'
+    <link href='//fonts.googleapis.com/css?family=Kaushan+Script&subset=latin,latin-ext' rel='stylesheet'
           type='text/css'/>
 
     <link rel="apple-touch-icon" sizes="57x57"
@@ -238,219 +238,223 @@ echo $option
             </div>
         </div>
     </div>
-    <?php if ($show_page_header) { ?>
-        <div <?php echo($show_page_header_bg !== false ? 'class="clanek-main-bg" style="background: rgba(0, 0, 0, 0) url(\'' . $show_page_header_bg . '\') no-repeat scroll 50% 0;"' : ''); ?>>
-            <div class="container<?php echo($params->get('fluidContainer') ? '-fluid' : ''); ?>">
-                <?php if ($this->countModules('breadcrumbs')) { ?>
-                    <jdoc:include type="modules" name="breadcrumbs" style="none"/>
-                <?php } ?>
-                <h1 class="page-header on-slideshow"><?php echo $header_title; ?></h1>
-            </div>
-        </div>
-    <?php } ?>
-    <?php if ($this->countModules('slideshow')) : ?>
-        <div class="slideshow-full">
-            <jdoc:include type="modules" name="slideshow" style="none"/>
-        </div>
-    <?php endif; ?>
-    <?php if ($this->countModules('sortiment-nav')) : ?>
-        <div class="sortiment-menu">
-            <div class="container<?php echo($params->get('fluidContainer') ? '-fluid' : ''); ?>">
-                <nav class="navigation sortiment" role="navigation">
-                    <jdoc:include type="modules" name="sortiment-nav" style="none"/>
-                </nav>
-            </div>
-        </div>
-    <?php endif; ?>
-    <?php if ($this->countModules('banner-1') || $this->countModules('banner-2')) : ?>
-        <div class="banner1-bg">
-            <div class="container<?php echo($params->get('fluidContainer') ? '-fluid' : ''); ?>">
-                <div class="row banner1-content">
-                    <div class="span6 banner1-left">
-                        <jdoc:include type="modules" name="banner-1" style="none"/>
-                    </div>
-                    <div class="span6 banner1-right">
-                        <jdoc:include type="modules" name="banner-2" style="none"/>
-                    </div>
+    <div class="MainContainer">
+        <?php if ($show_page_header) { ?>
+            <div <?php echo($show_page_header_bg !== false ? 'class="clanek-main-bg" style="background: rgba(0, 0, 0, 0) url(\'' . $show_page_header_bg . '\') no-repeat scroll 50% 0;"' : ''); ?>>
+                <div class="container<?php echo($params->get('fluidContainer') ? '-fluid' : ''); ?>">
+                    <?php if ($this->countModules('breadcrumbs')) { ?>
+                        <jdoc:include type="modules" name="breadcrumbs" style="none"/>
+                    <?php } ?>
+                    <h1 class="page-header on-slideshow"><?php echo $header_title; ?></h1>
                 </div>
             </div>
-        </div>
-    <?php endif; ?>
-    <?php if ($this->countModules('mini-kolo')) : ?>
-        <div class="mini-kolo"></div>
-    <?php endif; ?>
-    <?php if ($this->countModules('banner-3')) : ?>
-        <div class="banner1-bg banner3-bg">
-            <div class="container<?php echo($params->get('fluidContainer') ? '-fluid' : ''); ?>">
-                <div class="row banner1-content">
-                    <div class="span6 banner1-left">
-                        <jdoc:include type="modules" name="banner-3" style="none"/>
+        <?php } ?>
+        <?php if ($this->countModules('slideshow')) : ?>
+            <div class="slideshow-full ParallaxContainer">
+                <jdoc:include type="modules" name="slideshow" style="none"/>
+            </div>
+        <?php endif; ?>
+        <div class="ContentContainer">
+            <?php if ($this->countModules('sortiment-nav')) : ?>
+                <div class="sortiment-menu">
+                    <div class="container<?php echo($params->get('fluidContainer') ? '-fluid' : ''); ?>">
+                        <nav class="navigation sortiment" role="navigation">
+                            <jdoc:include type="modules" name="sortiment-nav" style="none"/>
+                        </nav>
                     </div>
-                </div>
-            </div>
-        </div>
-    <?php endif; ?>
-    <?php if ($this->countModules('reference')) : ?>
-        <div class="banner2-bg">
-            <div class="container<?php echo($params->get('fluidContainer') ? '-fluid' : ''); ?>">
-                <jdoc:include type="modules" name="reference" style="xhtml"/>
-            </div>
-        </div>
-    <?php endif; ?>
-    <?php if ($this->countModules('certifikace')) : ?>
-        <div class="banner-white-bg certifikace">
-            <div class="container<?php echo($params->get('fluidContainer') ? '-fluid' : ''); ?>">
-                <jdoc:include type="modules" name="certifikace" style="xhtml"/>
-            </div>
-        </div>
-    <?php endif; ?>
-    <?php if ($this->countModules('testovaci-dny')) : ?>
-        <div class="banner-grey-bg testovaci-dny">
-            <div class="container<?php echo($params->get('fluidContainer') ? '-fluid' : ''); ?>">
-                <jdoc:include type="modules" name="testovaci-dny" style="xhtml"/>
-            </div>
-        </div>
-    <?php endif; ?>
-    <div class="container<?php echo($params->get('fluidContainer') ? '-fluid' : ''); ?>">
-        <jdoc:include type="modules" name="banner" style="xhtml"/>
-        <div class="row-fluid">
-            <?php if ($this->countModules('sidebar-left')) : ?>
-                <!-- Begin Left Sidebar -->
-                <div id="sidebar" class="span3">
-                    <div class="sidebar-nav">
-                        <jdoc:include type="modules" name="sidebar-left" style="xhtml"/>
-                    </div>
-                </div>
-                <!-- End Left Sidebar -->
-            <?php endif; ?>
-            <main id="content" role="main" class="<?php echo $span; ?>">
-                <jdoc:include type="modules" name="position-3" style="xhtml"/>
-                <jdoc:include type="message"/>
-                <jdoc:include type="component"/>
-                <?php if ($this->countModules('znacky')) { ?>
-                    <jdoc:include type="modules" name="znacky" style="none"/>
-                <?php } ?>
-            </main>
-            <?php if ($this->countModules('sidebar-right')) : ?>
-                <div id="aside" class="span3">
-                    <!-- Begin Right Sidebar -->
-                    <jdoc:include type="modules" name="sidebar-right" style="well"/>
-                    <!-- End Right Sidebar -->
                 </div>
             <?php endif; ?>
-        </div>
-    </div>
-    <?php if ($this->countModules('sponzorujeme')) : ?>
-        <div class="banner-white-bg sponzorujeme">
-            <div class="container<?php echo($params->get('fluidContainer') ? '-fluid' : ''); ?>">
-                <jdoc:include type="modules" name="sponzorujeme" style="xhtml"/>
-            </div>
-        </div>
-    <?php endif; ?>
-    <?php if ($this->countModules('mapka')) : ?>
-        <div class="mapka-full">
-            <?php if ($this->countModules('mapka-oteviraci-doba')) : ?>
-                <div class="mapka-oteviraci-doba">
-                    <jdoc:include type="modules" name="mapka-oteviraci-doba" style="xhtml"/>
+            <?php if ($this->countModules('banner-1') || $this->countModules('banner-2')) : ?>
+                <div class="banner1-bg">
+                    <div class="container<?php echo($params->get('fluidContainer') ? '-fluid' : ''); ?>">
+                        <div class="row banner1-content">
+                            <div class="span6 banner1-left">
+                                <jdoc:include type="modules" name="banner-1" style="none"/>
+                            </div>
+                            <div class="span6 banner1-right">
+                                <jdoc:include type="modules" name="banner-2" style="none"/>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             <?php endif; ?>
-            <h2>Kde nás najdete</h2>
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5197.629163722493!2d16.010099410052426!3d49.355657893870166!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470d6fa82a8afed7%3A0xedd9491075a132a4!2zQ3lrbG8gSmFuw63EjWVr!5e0!3m2!1scs!2scz!4v1537385839639"
-                width="100%" height="460" frameborder="0" style="border:0" allowfullscreen></iframe>
-        </div>
-    <?php endif; ?>
-    <?php if ($this->countModules('contact-form')) : ?>
-        <div class="container<?php echo($params->get('fluidContainer') ? '-fluid' : ''); ?>">
-            <div class="contact-form">
-                <jdoc:include type="modules" name="contact-form" style="xhtml"/>
-            </div>
-        </div>
-    <?php endif; ?>
-    <?php if ($this->countModules('bazar-form')) : ?>
-        <div class="container<?php echo($params->get('fluidContainer') ? '-fluid' : ''); ?>">
-            <div id="bazarform" class="contact-form bazar-form">
-                <jdoc:include type="modules" name="bazar-form-title" style="none"/>
-                <jdoc:include type="modules" name="bazar-form" style="xhtml"/>
-            </div>
-        </div>
-    <?php endif; ?>
-    <?php if ($this->countModules('nad-spodni-listou')) : ?>
-        <div class="nad-spodni-listou">
-            <jdoc:include type="modules" name="nad-spodni-listou" style="xhtml"/>
-            <div class="greenline">
-            </div>
-        </div>
-    <?php endif; ?>
-    <?php if ($this->countModules('instagram')) : ?>
-        <div class="instagram">
+            <?php if ($this->countModules('mini-kolo')) : ?>
+                <div class="mini-kolo"></div>
+            <?php endif; ?>
+            <?php if ($this->countModules('banner-3')) : ?>
+                <div class="banner1-bg banner3-bg">
+                    <div class="container<?php echo($params->get('fluidContainer') ? '-fluid' : ''); ?>">
+                        <div class="row banner1-content">
+                            <div class="span6 banner1-left">
+                                <jdoc:include type="modules" name="banner-3" style="none"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php endif; ?>
+            <?php if ($this->countModules('reference')) : ?>
+                <div class="banner2-bg">
+                    <div class="container<?php echo($params->get('fluidContainer') ? '-fluid' : ''); ?>">
+                        <jdoc:include type="modules" name="reference" style="xhtml"/>
+                    </div>
+                </div>
+            <?php endif; ?>
+            <?php if ($this->countModules('certifikace')) : ?>
+                <div class="banner-white-bg certifikace">
+                    <div class="container<?php echo($params->get('fluidContainer') ? '-fluid' : ''); ?>">
+                        <jdoc:include type="modules" name="certifikace" style="xhtml"/>
+                    </div>
+                </div>
+            <?php endif; ?>
+            <?php if ($this->countModules('testovaci-dny')) : ?>
+                <div class="banner-grey-bg testovaci-dny">
+                    <div class="container<?php echo($params->get('fluidContainer') ? '-fluid' : ''); ?>">
+                        <jdoc:include type="modules" name="testovaci-dny" style="xhtml"/>
+                    </div>
+                </div>
+            <?php endif; ?>
             <div class="container<?php echo($params->get('fluidContainer') ? '-fluid' : ''); ?>">
-                <jdoc:include type="modules" name="instagram" style="xhtml"/>
-                <div id="instafeed"></div>
-                <script type="text/javascript">
-                    var feed = new Instafeed({
-                        get: 'user',
-                        userId: 2141789648,
-                        accessToken: '2141789648.467ede5.98d624315fb24d6e908b1877041a200c'
-                    });
-                    feed.run();
-                </script>
+                <jdoc:include type="modules" name="banner" style="xhtml"/>
+                <div class="row-fluid">
+                    <?php if ($this->countModules('sidebar-left')) : ?>
+                        <!-- Begin Left Sidebar -->
+                        <div id="sidebar" class="span3">
+                            <div class="sidebar-nav">
+                                <jdoc:include type="modules" name="sidebar-left" style="xhtml"/>
+                            </div>
+                        </div>
+                        <!-- End Left Sidebar -->
+                    <?php endif; ?>
+                    <main id="content" role="main" class="<?php echo $span; ?>">
+                        <jdoc:include type="modules" name="position-3" style="xhtml"/>
+                        <jdoc:include type="message"/>
+                        <jdoc:include type="component"/>
+                        <?php if ($this->countModules('znacky')) { ?>
+                            <jdoc:include type="modules" name="znacky" style="none"/>
+                        <?php } ?>
+                    </main>
+                    <?php if ($this->countModules('sidebar-right')) : ?>
+                        <div id="aside" class="span3">
+                            <!-- Begin Right Sidebar -->
+                            <jdoc:include type="modules" name="sidebar-right" style="well"/>
+                            <!-- End Right Sidebar -->
+                        </div>
+                    <?php endif; ?>
+                </div>
             </div>
-        </div>
-    <?php endif; ?>
-    <div class="spodni-lista">
-        <div class="container<?php echo($params->get('fluidContainer') ? '-fluid' : ''); ?>">
-            <div class="row">
-                <div class="span12 lista-icon-phone">
-                    <div class="lista-title">Zákaznická podpora</div>
-                    <div class="lista-text">
-                        <span class="phone"><?php echo $params->get('sitephone'); ?></span>
+            <?php if ($this->countModules('sponzorujeme')) : ?>
+                <div class="banner-white-bg sponzorujeme">
+                    <div class="container<?php echo($params->get('fluidContainer') ? '-fluid' : ''); ?>">
+                        <jdoc:include type="modules" name="sponzorujeme" style="xhtml"/>
+                    </div>
+                </div>
+            <?php endif; ?>
+            <?php if ($this->countModules('mapka')) : ?>
+                <div class="mapka-full">
+                    <?php if ($this->countModules('mapka-oteviraci-doba')) : ?>
+                        <div class="mapka-oteviraci-doba">
+                            <jdoc:include type="modules" name="mapka-oteviraci-doba" style="xhtml"/>
+                        </div>
+                    <?php endif; ?>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5197.629163722493!2d16.010099410052426!3d49.355657893870166!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470d6fa82a8afed7%3A0xedd9491075a132a4!2zQ3lrbG8gSmFuw63EjWVr!5e0!3m2!1scs!2scz!4v1537385839639"
+                        width="100%" height="460" frameborder="0" style="border:0" allowfullscreen></iframe>
+                </div>
+            <?php endif; ?>
+            <?php if ($this->countModules('contact-form')) : ?>
+                <div class="container<?php echo($params->get('fluidContainer') ? '-fluid' : ''); ?>">
+                    <div class="contact-form">
+                        <jdoc:include type="modules" name="contact-form" style="xhtml"/>
+                    </div>
+                </div>
+            <?php endif; ?>
+            <?php if ($this->countModules('bazar-form')) : ?>
+                <div class="container<?php echo($params->get('fluidContainer') ? '-fluid' : ''); ?>">
+                    <div id="bazarform" class="contact-form bazar-form">
+                        <jdoc:include type="modules" name="bazar-form-title" style="none"/>
+                        <jdoc:include type="modules" name="bazar-form" style="xhtml"/>
+                    </div>
+                </div>
+            <?php endif; ?>
+            <?php if ($this->countModules('nad-spodni-listou')) : ?>
+                <div class="nad-spodni-listou">
+                    <jdoc:include type="modules" name="nad-spodni-listou" style="xhtml"/>
+                    <div class="greenline">
+                    </div>
+                </div>
+            <?php endif; ?>
+            <?php if ($this->countModules('instagram')) : ?>
+                <div class="instagram">
+                    <div class="container<?php echo($params->get('fluidContainer') ? '-fluid' : ''); ?>">
+                        <jdoc:include type="modules" name="instagram" style="xhtml"/>
+                        <div id="instafeed"></div>
+                        <script type="text/javascript">
+                            var feed = new Instafeed({
+                                get: 'user',
+                                userId: 2141789648,
+                                accessToken: '2141789648.467ede5.98d624315fb24d6e908b1877041a200c'
+                            });
+                            feed.run();
+                        </script>
+                    </div>
+                </div>
+            <?php endif; ?>
+            <div class="spodni-lista">
+                <div class="container<?php echo($params->get('fluidContainer') ? '-fluid' : ''); ?>">
+                    <div class="row">
+                        <div class="span12 lista-icon-phone">
+                            <div class="lista-title">Zákaznická podpora</div>
+                            <div class="lista-text">
+                                <span class="phone"><?php echo $params->get('sitephone'); ?></span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        <!-- Footer -->
+        <footer class="footer" role="contentinfo">
+            <div class="container<?php echo($params->get('fluidContainer') ? '-fluid' : ''); ?>">
+                <div class="row">
+                    <div class="footer-module span4">
+                        <jdoc:include type="modules" name="footer-left" style="xhtml"/>
+                    </div>
+                    <div class="footer-module span4">
+                        <jdoc:include type="modules" name="footer-middle" style="xhtml"/>
+                    </div>
+                    <div class="footer-module span4">
+                        <h3>Sledujte nás</h3>
+                        <div class="fb-page" data-href="https://www.facebook.com/cyklo.janicek" data-width="288"
+                             data-height="227"
+                             data-hide-cover="true" data-show-facepile="true" data-show-posts="false">
+                            <div class="fb-xfbml-parse-ignore">
+                                <blockquote cite="https://www.facebook.com/cyklo.janicek">
+                                    <a href="https://www.facebook.com/cyklo.janicek">Cyklo Janíček</a>
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row margin-top">
+                    <p class="span8 text-right platebni_metody">
+                        <img src="images/footer_ikonky/logo_visa.png" alt="VISA" title="VISA"/>
+                        <img src="images/footer_ikonky/logo_maestro.png" alt="Maestro" title="Maestro"/>
+                        <img src="images/footer_ikonky/logo_mastercard.png" alt="MasterCard" title="MasterCard"/>
+                    </p>
+                    <p class="span4">
+                        <a class="fb-icon" href="https://www.facebook.com/cyklo.janicek" data-placement="top"
+                           data-toggle="tooltip"
+                           data-original-title="Cyklo Janíček na Facebooku"><img src="images/footer_ikonky/icon_fb.png"
+                                                                                 alt="Cyklo Janíček na Facebooku"/></a>
+                        <span class="autor bondon">Webdesign by <a
+                                href="http://www.bondon-webdesign.cz/">Bondon</a></span>
+                        <span class="autor resyst">Created by <a href="http://www.resyst.cz/">ReSyst.cz</a></span>
+                    </p>
+                </div>
+            </div>
+        </footer>
+        <jdoc:include type="modules" name="debug" style="none"/>
     </div>
 </div>
-<!-- Footer -->
-<footer class="footer" role="contentinfo">
-    <div class="container<?php echo($params->get('fluidContainer') ? '-fluid' : ''); ?>">
-        <div class="row">
-            <div class="footer-module span4">
-                <jdoc:include type="modules" name="footer-left" style="xhtml"/>
-            </div>
-            <div class="footer-module span4">
-                <jdoc:include type="modules" name="footer-middle" style="xhtml"/>
-            </div>
-            <div class="footer-module span4">
-                <h3>Sledujte nás</h3>
-                <div class="fb-page" data-href="https://www.facebook.com/cyklo.janicek" data-width="288"
-                     data-height="227"
-                     data-hide-cover="true" data-show-facepile="true" data-show-posts="false">
-                    <div class="fb-xfbml-parse-ignore">
-                        <blockquote cite="https://www.facebook.com/cyklo.janicek">
-                            <a href="https://www.facebook.com/cyklo.janicek">Cyklo Janíček</a>
-                        </blockquote>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row margin-top">
-            <p class="span8 text-right platebni_metody">
-                <img src="images/footer_ikonky/logo_visa.png" alt="VISA" title="VISA"/>
-                <img src="images/footer_ikonky/logo_maestro.png" alt="Maestro" title="Maestro"/>
-                <img src="images/footer_ikonky/logo_mastercard.png" alt="MasterCard" title="MasterCard"/>
-            </p>
-            <p class="span4">
-                <a class="fb-icon" href="https://www.facebook.com/cyklo.janicek" data-placement="top"
-                   data-toggle="tooltip"
-                   data-original-title="Cyklo Janíček na Facebooku"><img src="images/footer_ikonky/icon_fb.png"
-                                                                         alt="Cyklo Janíček na Facebooku"/></a>
-                <span class="autor bondon">Webdesign by <a href="http://www.bondon-webdesign.cz/">Bondon</a></span>
-                <span class="autor resyst">Created by <a href="http://www.resyst.cz/">ReSyst.cz</a></span>
-            </p>
-        </div>
-    </div>
-</footer>
-<jdoc:include type="modules" name="debug" style="none"/>
 </body>
 </html>
