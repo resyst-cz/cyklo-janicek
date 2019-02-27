@@ -69,6 +69,7 @@ if ($this->params->get('logoFile')) {
     $logo = '<span class="site-title" title="' . $sitename . '">' . $sitename . '</span>';
 }
 
+$googleMapsApiKey = 'AIzaSyAKKl7rqk6xsGzIq5lyPHd0Xgp9_U3c4kU';
 $komponenta = $app->input->get('option');
 $show_page_header = $show_page_header_bg = false;
 $add_class = $header_title = '';
@@ -357,7 +358,7 @@ echo $option
                         </div>
                     <?php endif; ?>
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5197.629163722493!2d16.010099410052426!3d49.355657893870166!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470d6fa82a8afed7%3A0xedd9491075a132a4!2zQ3lrbG8gSmFuw63EjWVr!5e0!3m2!1scs!2scz!4v1537385839639"
+                        src="https://www.google.com/maps/embed?key=<?php echo $googleMapsApiKey; ?>&pb=!1m18!1m12!1m3!1d5197.629163722493!2d16.010099410052426!3d49.355657893870166!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470d6fa82a8afed7%3A0xedd9491075a132a4!2zQ3lrbG8gSmFuw63EjWVr!5e0!3m2!1scs!2scz!4v1537385839639"
                         width="100%" height="460" frameborder="0" style="border:0" allowfullscreen></iframe>
                 </div>
             <?php endif; ?>
